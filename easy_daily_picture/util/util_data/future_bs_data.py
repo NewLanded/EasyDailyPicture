@@ -1,5 +1,5 @@
-from flaskr.util.util_base.db import get_db
-from flaskr.util.util_base.db_util import get_multi_data
+from easy_daily_picture.util.util_base.db import get_db
+from easy_daily_picture.util.util_base.db_util import get_multi_data
 
 
 class FutureBSData:

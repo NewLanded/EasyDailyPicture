@@ -2,10 +2,10 @@ import datetime
 
 from flask import Blueprint, jsonify, request
 
-from flaskr.util.util_base.date_util import convert_datetime_to_str
-from flaskr.util.util_base.plot_util import plot_future_interval_point_data_by_code
-from flaskr.util.util_data.basic_info import BasicInfo
-from flaskr.util.util_data.future_bs_data import FutureBSData
+from easy_daily_picture.util.util_base.date_util import convert_datetime_to_str
+from easy_daily_picture.util.util_base.plot_util import plot_future_interval_point_data_by_code
+from easy_daily_picture.util.util_data.basic_info import BasicInfo
+from easy_daily_picture.util.util_data.future_bs_data import FutureBSData
 
 bp = Blueprint('future', __name__, url_prefix='/future')
 

@@ -5,7 +5,7 @@ import re
 import numpy as np
 import pandas as pd
 
-from flaskr.util.util_base.date_util import convert_datetime_to_str
+from easy_daily_picture.util.util_base.date_util import convert_datetime_to_str
 
 
 def print_format_result(result):

@@ -77,13 +77,13 @@ def create_app(test_config=None):
         'params_json:%(params_json)s\n'
         '%(message)s'
     )
-    file_handler = handlers.RotatingFileHandler(os.path.join(app.instance_path, "../log/flaskr.log"), maxBytes=81920, encoding='utf-8', backupCount=9)
+    file_handler = handlers.RotatingFileHandler(os.path.join(app.instance_path, "../log/easy_daily_picture.log"), maxBytes=81920, encoding='utf-8', backupCount=9)
     file_handler.setFormatter(formatter)
     app.logger.addHandler(file_handler)
     app.logger.setLevel(logging.INFO)
 
     try:
-        os.makedirs(os.path.join(app.instance_path, "../log/flaskr.log"))
+        os.makedirs(os.path.join(app.instance_path, "../log/easy_daily_picture.log"))
     except OSError:
         pass
 

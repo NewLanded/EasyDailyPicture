@@ -1,4 +1,4 @@
-from flaskr import create_app
+from easy_daily_picture import create_app
 
 """
 用于在pycharm中启动项目, 可以debug

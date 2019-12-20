@@ -5,7 +5,7 @@ import matplotlib.ticker as ticker
 import seaborn as sns
 import talib as ta
 
-from flaskr.util.util_data.future_data import FutureData
+from easy_daily_picture.util.util_data.future_data import FutureData
 from flask import current_app
 
 def get_future_interval_point_data(ts_code, start_date, end_date):
