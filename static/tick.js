@@ -17,7 +17,7 @@ var app = new Vue({
                 this.now_date = this.start_date;
             };
             if (this.now_date > this.end_date){
-                alter("日期已循环完成");
+                alert("日期已循环完成");
                 return null;
             };
 
