@@ -24,19 +24,19 @@ var app = new Vue({
             var that = this;
 
             // 获取ts_code
-            axios.get("http://127.0.0.1:5000/future/holding_info/?symbol=" + that.contract_code)
+            axios.get("http://47.92.6.148:6678/future/holding_info/?symbol=" + that.contract_code)
             .then(function (response) {
                 that.ts_code = response.data[0][0];
                 console.log(that.ts_code);
 
                 // 获取下一个交易日
-                axios.get("http://127.0.0.1:5000/future/get_next_trade_day/?data_date=" + that.now_date)
+                axios.get("http://47.92.6.148:6678/future/get_next_trade_day/?data_date=" + that.now_date)
                     .then(function (response) {
                         that.trade_date = response.data;
                         console.log(response);
 
                     // 生成图片并获取生成的图片的地址
-                    axios.get("http://127.0.0.1:5000/future/plot_future_interval_point_data_by_ts_code/?end_date=" + that.trade_date + "&ts_code=" + that.ts_code)
+                    axios.get("http://47.92.6.148:6678/future/plot_future_interval_point_data_by_ts_code/?end_date=" + that.trade_date + "&ts_code=" + that.ts_code)
                         .then(function (response) {
                             that.picture_url = response.data;
                             console.log(response.data);
