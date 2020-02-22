@@ -24,6 +24,7 @@ var app = new Vue({
             var that = this;
 
             // 获取ts_code
+            // 47.92.6.148:6678 写死不好, 但是暂时不知道怎么弄到配置文件里去
             axios.get("http://47.92.6.148:6678/future/holding_info/?symbol=" + that.contract_code)
             .then(function (response) {
                 that.ts_code = response.data[0][0];
