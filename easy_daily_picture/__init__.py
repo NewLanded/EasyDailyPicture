@@ -27,9 +27,9 @@ def create_app(test_config=None):
 
     ################################################################################################
     # 创建存储图片的目录
-    app.image_dir = os.path.join(app.instance_path, "../static/future_point_image")
+    app.image_dir = os.path.join(app.instance_path, app.config['IMAGE_DIR'])
     try:
-        os.makedirs(os.path.join(app.instance_path, "../static/future_point_image"))
+        os.makedirs(os.path.join(app.instance_path, app.config['IMAGE_DIR']))
     except OSError as e:
         pass
     ################################################################################################
@@ -86,5 +86,10 @@ def create_app(test_config=None):
         os.makedirs(os.path.join(app.instance_path, "../log/easy_daily_picture.log"))
     except OSError:
         pass
+
+    @app.after_request
+    def add_cors(resp):
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
 
     return app

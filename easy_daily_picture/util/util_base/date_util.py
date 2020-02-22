@@ -2,14 +2,17 @@ import datetime
 
 
 def convert_datetime_to_str(date):
-    return date.strftime('%Y%m%d')
+    return date.strftime('%Y-%m-%d')
 
 
 def convert_str_to_datetime(date):
-    if "-" in date:
-        return datetime.datetime.strptime(date, "%Y-%m-%d")
+    if isinstance(date, str):
+        if "-" in date:
+            return datetime.datetime.strptime(date, "%Y-%m-%d")
+        else:
+            return datetime.datetime.strptime(date, "%Y%m%d")
     else:
-        return datetime.datetime.strptime(date, "%Y%m%d")
+        return date
 
 
 def convert_pd_timestamp_to_datetime(timestamp):
