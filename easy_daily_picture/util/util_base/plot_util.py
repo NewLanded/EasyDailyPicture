@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import talib as ta
 import numpy as np
+from flask import current_app
 
 from easy_daily_picture.util.util_data.future_data import FutureData
-from flask import current_app
 
 
 def get_future_interval_point_data(ts_code, start_date, end_date):
@@ -61,7 +61,7 @@ def plot_future_big_picture_data(ts_code, point_data, point_result_all_date, ima
         return xticks_index_map.iloc[int(x)]
 
     fig = plt.figure(figsize=(16, 24))  # 16, 18
-    ax4 = plt.axes([0, 0.1, 0.85, 0.08])
+    ax4 = plt.axes([0.05, 0.1, 0.85, 0.08])
 
     ax4.bar(point_data["xticks_int_index"], point_data["bias_20"], ls="-", lw=1, color='k')
 
@@ -75,7 +75,7 @@ def plot_future_big_picture_data(ts_code, point_data, point_result_all_date, ima
     plt.xticks(rotation=90)
 
     #####################################
-    ax3 = plt.axes([0, 0.18, 0.85, 0.04], sharex=ax4)
+    ax3 = plt.axes([0.05, 0.18, 0.85, 0.04], sharex=ax4)
     plt.setp(ax3.get_xticklabels(), visible=False)
 
     ax3.bar(point_data["xticks_int_index"], point_data["sma_cov"], ls="-", lw=1, color='k')
@@ -84,7 +84,7 @@ def plot_future_big_picture_data(ts_code, point_data, point_result_all_date, ima
     ax3.legend(loc="upper left", bbox_to_anchor=(0.05, 0.95), ncol=3, title=ts_code, shadow=True, fancybox=True, labels=labels)
 
     #####################################
-    ax2 = plt.axes([0, 0.22, 0.85, 0.26], sharex=ax3)
+    ax2 = plt.axes([0.05, 0.22, 0.85, 0.26], sharex=ax3)
     plt.setp(ax2.get_xticklabels(), visible=False)
 
     ax2.plot(point_data["xticks_int_index"], point_data["close"], ls="-", lw=1, color='k')
@@ -96,7 +96,7 @@ def plot_future_big_picture_data(ts_code, point_data, point_result_all_date, ima
     ax2.legend(loc="upper left", bbox_to_anchor=(0.05, 0.95), ncol=3, title=ts_code, shadow=True, fancybox=True, labels=labels)
 
     #####################################
-    ax1 = plt.axes([0, 0.48, 0.85, 0.26], sharex=ax2)
+    ax1 = plt.axes([0.05, 0.48, 0.85, 0.26], sharex=ax2)
     plt.setp(ax1.get_xticklabels(), visible=False)
 
     sma_data_5_sloop, sma_data_30_sloop = _calc_the_last_sma_data_sloop(point_data)
@@ -126,10 +126,8 @@ def plot_future_big_picture_data(ts_code, point_data, point_result_all_date, ima
     ax1.legend(loc="upper left", bbox_to_anchor=(0.05, 0.95), ncol=3, title=ts_code, shadow=True, fancybox=True, labels=labels)
 
     #####################################
-    ax0 = plt.axes([0, 0.74, 0.85, 0.26])
+    ax0 = plt.axes([0.05, 0.74, 0.85, 0.26])
     plt.setp(ax0.get_xticklabels(), visible=False)
-
-    #     ax0.plot(point_result_all_date["trade_date"], point_result_all_date["close"], ls="-", lw=1, color='k')
 
     contract_list = point_result_all_date['ts_code'].unique()
     for contract in contract_list:
@@ -142,6 +140,7 @@ def plot_future_big_picture_data(ts_code, point_data, point_result_all_date, ima
     ax2.grid(True)
 
     plt.savefig(os.path.join(current_app.image_dir, image_name))
+    # plt.show()
 
 
 def plot_future_interval_point_data_by_code(ts_code, start_date, end_date, image_name):

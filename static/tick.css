@@ -1,16 +1,32 @@
-body{
+/* 通用样式 */
+
+body {
+    background-color: slategray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+/* 头部样式 */
+
+#header {
+    background-color: teal;
+}
+
+/* 内容样式 */
+
+#content {
     background-color: skyblue;
 }
 
-img{
-    width: 60%;
-    /* height: 10px; */
+/* 尾部样式 */
+
+#footer {
+    background-color: darkgray;
 }
-
-#app{
-    margin-top: 1%;
-    margin-left: 5%;
-}
-
-
-

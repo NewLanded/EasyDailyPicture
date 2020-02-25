@@ -1,7 +1,7 @@
 
 
 var app = new Vue({
-    el: "#app",
+    el: "#content",
     data: {
         contract_code: "P2005",
         start_date: "2020-01-01",
